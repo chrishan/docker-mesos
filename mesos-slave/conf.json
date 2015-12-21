@@ -1,0 +1,8 @@
+{
+	"auths": {
+		"https://index.docker.io/v1/": {
+			"auth": "Y2hyaXNoYW46aHhnMTk4Mg==",
+			"email": "xganghan@gmail.com"
+		}
+	}
+}
