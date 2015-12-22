@@ -5,3 +5,4 @@ COPY mongodb_scripts /tmp/mongodb_scripts
 COPY run.sh /tmp/run.sh
 
 ENTRYPOINT ["/bin/bash", "/tmp/run.sh"]
+EXPOSE 27017

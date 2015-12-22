@@ -40,24 +40,32 @@ mesosslave:
     MESOS_EXECUTOR_REGISTRATION_TIMEOUT: '5mins'
     MESOS_EXECUTOR_SHUTDOWN_GRACE_PERIOD: '90secs'
     MESOS_DOCKER_STOP_TIMEOUT: '60secs'
-# If your workstation doesn't have a resolvable hostname/FQDN then $MESOS_HOSTNAME needs to be set to its IP-address
-    MESOS_HOSTNAME: 10.87.1.123
+# If your workstation doesn't have a resolvable hostname/FQDN then $MESOS_HOSTNAME needs to be set to the host's internal IP-address
+    MESOS_HOSTNAME: 10.211.55.3
 
 db:
   build: rec-db
+  ports:
+   - "27017:27017"
 
 front:
-  image: visenze/weardex-recognition-front:latest
+  image: visenze/weardex-recognition-front:10da515f22bab56eb794b2c0f6b141c2db38404d
   ports:
    - "8082:28082"
   links:
-   - zookeeper
-   - db
+   - zookeeper:rec_zookeeper
+   - db:rec_db
+
+admin:
+  image: visenze/weardex-recognition-admin:latest
+  ports:
+   - "8084:28084"
+  net: host
 
 router:
   image: visenze/weardex-recognition-router:latest
   ports:
    - "8083:28083"
   links:
-   - zookeeper
-   - db
+   - zookeeper:rec_zookeeper
+   - db:rec_db
