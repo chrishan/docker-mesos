@@ -45,11 +45,9 @@ mesosslave:
 
 db:
   build: rec-db
-  net: host
 
 front:
   image: visenze/weardex-recognition-front:latest
-  net: host
   ports:
    - "8082:28082"
   links:
@@ -58,7 +56,6 @@ front:
 
 router:
   image: visenze/weardex-recognition-router:latest
-  net: host
   ports:
    - "8083:28083"
   links:
