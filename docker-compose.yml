@@ -48,6 +48,12 @@ db:
   ports:
    - "27017:27017"
 
+admin:
+  image: visenze/weardex-recognition-admin:latest
+  ports:
+   - "8084:28084"
+  net: host
+
 front:
   image: visenze/weardex-recognition-front:10da515f22bab56eb794b2c0f6b141c2db38404d
   ports:
@@ -55,12 +61,6 @@ front:
   links:
    - zookeeper:rec_zookeeper
    - db:rec_db
-
-admin:
-  image: visenze/weardex-recognition-admin:latest
-  ports:
-   - "8084:28084"
-  net: host
 
 router:
   image: visenze/weardex-recognition-router:latest
