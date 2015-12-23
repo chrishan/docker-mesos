@@ -51,7 +51,7 @@ db:
 admin:
   image: visenze/weardex-recognition-admin:latest
   ports:
-   - "8084:8084"
+   - "8097:8097"
   net: host
 
 front:
@@ -66,6 +66,7 @@ router:
   image: visenze/weardex-recognition-router:latest
   ports:
    - "8083:8083"
-  links:
-   - zookeeper:rec_zookeeper
-   - db:rec_db
+  net: host
+  # links:
+  #  - zookeeper:rec_zookeeper
+  #  - db:rec_db
