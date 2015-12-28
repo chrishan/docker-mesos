@@ -40,8 +40,10 @@ mesosslave:
     MESOS_EXECUTOR_REGISTRATION_TIMEOUT: '5mins'
     MESOS_EXECUTOR_SHUTDOWN_GRACE_PERIOD: '90secs'
     MESOS_DOCKER_STOP_TIMEOUT: '60secs'
+    MESOS_SWITCH_USER: 'false'
 # If your workstation doesn't have a resolvable hostname/FQDN then $MESOS_HOSTNAME needs to be set to the host's internal IP-address
-    MESOS_HOSTNAME: 10.211.55.3
+    MESOS_HOSTNAME: $MESOS_HOSTNAME
+    # echo MESOS_HOSTNAME=10.211.55.3
 
 db:
   build: rec-db
