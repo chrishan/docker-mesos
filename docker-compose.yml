@@ -58,7 +58,6 @@ admin:
   net: host
   environment:
     MONGO: $MONGO_CONN
-    ZK: $ZK_CONN
 
 front:
   image: visenze/weardex-recognition-front:adminapi
@@ -66,7 +65,6 @@ front:
    - "8082:8082"
   environment:
     MONGO: $MONGO_CONN
-    ZK: $ZK_CONN
   links:
    - zookeeper:rec_zookeeper
    - db:rec_db
@@ -78,7 +76,3 @@ router:
   net: host
   environment:
     MONGO: $MONGO_CONN
-    ZK: $ZK_CONN
-  # links:
-  #  - zookeeper:rec_zookeeper
-  #  - db:rec_db

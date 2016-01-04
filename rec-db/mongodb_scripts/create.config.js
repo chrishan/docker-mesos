@@ -3,7 +3,7 @@ db.config.remove({})
 
 // zk host
 db.config.insert({_id: "zk.root_path", value: "/recognition/v1", permission: ["config:operator:view", "config:operator:update"]});
-db.config.insert({_id: "zk.conn_str", value: "10.211.55.3:2181"});
+db.config.insert({_id: "zk.conn_str", value: "localhost:2181"});
 
 // thrift
 db.config.insert({_id: "recognition.thrift.host", value: "localhost"});
